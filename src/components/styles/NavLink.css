@@ -1,11 +1,12 @@
-a {
-    text-decoration: none;
+button {
     display: flex;
     padding: 0 20px;
     height: 62px;
     align-items: center;
+    border: none;
+    background: transparent;
 }
 
-a:hover {
+button:hover {
     background-color: #d19238;
 }
