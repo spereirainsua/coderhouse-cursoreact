@@ -11,10 +11,11 @@ export default function NavHoverLink({ texto, nombre }) {
                 <button name={nombre}>{texto}</button>
                 {isShown && (
                     <section className="container-nav-hover">
-                        <NavLink texto="Tarjetas Gráficas" nombre="graficas" enlace={""} />
-                        <NavLink texto="Procesadores" nombre="procesadores" enlace={""} />
-                        <NavLink texto="Memorias" nombre="memorias" enlace={""} />
-                        <NavLink texto="Almacenamiento" nombre="almacenamiento" enlace={""} />
+                        <NavLink texto="Tarjetas Gráficas" nombre="graficas" enlace={"/category/graficas"} />
+                        <NavLink texto="Motherboards" nombre="motherboards" enlace={"/category/motherboards"} />
+                        <NavLink texto="Procesadores" nombre="procesadores" enlace={"/category/procesadores"} />
+                        <NavLink texto="Memorias" nombre="memorias" enlace={"/category/memorias"} />
+                        <NavLink texto="Almacenamiento" nombre="almacenamiento" enlace={"/category/almacenamiento"} />
                     </section>
                 )}
             </div>

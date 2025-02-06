@@ -1,0 +1,19 @@
+.container-product-detail {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-img-details {
+    max-width: 60%;
+}
+
+.counter-container {
+    display: flex;
+    align-items: center;
+}
+
+.counter-container span {
+    margin: 10px 20px;
+}
+
