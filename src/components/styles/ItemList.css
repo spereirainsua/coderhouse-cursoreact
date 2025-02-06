@@ -1,0 +1,6 @@
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+    gap: 5px;
+    margin-bottom: 5vh;
+}

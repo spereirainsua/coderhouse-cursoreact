@@ -7,11 +7,11 @@ import NavHoverLink from './NavHoverLink'
 export default function NavBar() {
     return (
         <header>
-            <section className="container-nav">
+            <section className="container-lg container-nav">
                 <LogoComponent />
                 <nav>
                     <NavLink texto="Inicio" nombre="inicio" enlace={"/"} />
-                    <NavLink texto="Busqueda" nombre="busqueda" enlace={"/busqueda"} />
+                    <NavLink texto="Busqueda" nombre="busqueda" enlace={"/"} />
                     <NavHoverLink texto="Categorías" nombre="categorias" enlace={"/"} />
                 </nav>
                 <CartWidjet />

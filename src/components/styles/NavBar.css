@@ -5,6 +5,7 @@ header {
     width: 100%;
     top: 0px;
     box-shadow: 1px 1px 3px gray;
+    z-index: 50;
 }
 
 .container-nav {
