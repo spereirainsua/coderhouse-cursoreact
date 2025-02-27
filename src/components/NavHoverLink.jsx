@@ -1,13 +1,25 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import NavLink from './NavLink'
 import './styles/NavHoverLink.css'
 
 export default function NavHoverLink({ texto, nombre }) {
     const [isShown, setIsShown] = useState(false)
 
+    const handleMouseEnter = () => {
+        setIsShown(true)
+    }
+
+    const handleMouseLeave = () => {
+        setIsShown(false)
+    }
+
+    const handleClick = () => {
+        setIsShown(false)
+    }
+
     return (
         <>
-            <div onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}>
+            <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleClick}>
                 <button name={nombre}>{texto}</button>
                 {isShown && (
                     <section className="container-nav-hover">

@@ -2,7 +2,9 @@ import './App.css'
 import ItemListContainer from './components/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer'
 import NavBar from './components/NavBar'
+import Cart from './components/Cart'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import CartProvider from './components/context/CartContext'
 
 function App() {
   let titulo = "Bienvenido/a!"
@@ -10,13 +12,16 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <CartProvider>
         <NavBar />
         <Routes>
           <Route exact path="/" element={<ItemListContainer tituloBienvenida={titulo} textoBienvenida={texto} />} />
           <Route exact path="/category/:catId" element={<ItemListContainer />} />
           <Route exact path="/product/:productId" element={<ItemDetailContainer />} />
+          <Route exact path="/cart" element={<Cart />} />
           <Route exact path="*" element={<ItemListContainer tituloBienvenida={"Error 404"} textoBienvenida={"Página no encontrada"} />} />
         </Routes>
+        </CartProvider>
       </BrowserRouter>
     </>
   )

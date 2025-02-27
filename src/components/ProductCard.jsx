@@ -11,7 +11,9 @@ export default function ProductCard({ product }) {
 
                 <div className="title-container">
                     <h5>{product.title}</h5>
-                    <button><Link to={`/product/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>Más detalles...</Link></button>
+                    <Link to={`/product/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <button>Más detalles...</button>
+                    </Link>
                 </div>
             </div>
         </>
