@@ -11,7 +11,14 @@ export default function CartWidjet() {
     const [cart] = useContext(CartContext)
     const [count, setCount] = useState(0)
     useEffect(() => {
-        setCount(itemCount(cart))
+        if (!cart) {
+            console.log("Entro aqui!")
+            setCount(0)
+        } else {
+            console.log("LPMMMMMMM!")
+            setCount(itemCount(cart))
+        }
+        
     }, [cart])
 
     return (

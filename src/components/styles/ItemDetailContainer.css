@@ -8,3 +8,9 @@
 .card-img-details {
     max-width: 60%;
 }
+
+.item-count-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

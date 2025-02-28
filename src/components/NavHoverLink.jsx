@@ -20,7 +20,7 @@ export default function NavHoverLink({ texto, nombre }) {
     return (
         <>
             <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleClick}>
-                <button name={nombre}>{texto}</button>
+                <button className="btn-nav-link" name={nombre}>{texto}</button>
                 {isShown && (
                     <section className="container-nav-hover">
                         <NavLink texto="Tarjetas Gráficas" nombre="graficas" enlace={"/category/graficas"} />

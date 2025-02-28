@@ -1,6 +1,3 @@
-import { useState, useEffect, useContext } from 'react'
-import { useParams } from 'react-router-dom'
-import { CartContext } from './context/CartContext'
 import './styles/ItemCount.css'
 
 const counter = (value, increment, max) => {
@@ -9,36 +6,20 @@ const counter = (value, increment, max) => {
     else return value
 }
 
-export default function ItemCount({ stock }) {
-    const [count, setCount] = useState(1)
-    const { productId } = useParams()
-    const [cart, addProduct] = useContext(CartContext)
-    const [isAdded, setIsAdded] = useState(false)
-
-    const handleClick = () => {
-        setIsAdded(true)
-        
-        addProduct(productId, count)
-    }
-
-    useEffect(() => {
-        console.log(cart)
-    }, [cart])
-
+export default function ItemCount({ stock, count, updateCount }) {
     return (
         <>
-            {!isAdded ?
-                (<>
-                    <div className="counter-container">
-                        <button onClick={() => setCount((count) => counter(count, -1, stock))}>-</button>
-                        <span>{count}</span>
-                        <button onClick={() => setCount((count) => counter(count, 1, stock))}>+</button>
-                    </div>
-                    <span>Stock: {stock}</span>
-                    <button onClick={handleClick}>Agregar al carrito</button>
-                </>)
-                : <span>Agregado al carrito!</span>
-            }
+            <div>
+                <div className="input-group">
+                    <button className="btn-counter btn" onClick={() => updateCount((count) => counter(count, -1, stock))}>
+                    <img src="/img/remove.svg" alt="Quitar" />
+                    </button>
+                    <span className="input-group-text">{count}</span>
+                    <button className="btn-counter btn" onClick={() => updateCount((count) => counter(count, 1, stock))}>
+                    <img src="/img/add.svg" alt="Agregar" />
+                    </button>
+                </div>
+            </div>
         </>
     )
 }

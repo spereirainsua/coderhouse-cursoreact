@@ -3,17 +3,21 @@ import { createContext, useState } from "react"
 export const CartContext = createContext()
 
 const CartProvider = ({ children }) => {
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState(null)
 
-    const addProduct = (productId, quantity) => {
+    const addProduct = (product, quantity) => {
         setCart(prevCart => {
-            const isInCartIndex = prevCart.findIndex(product => product.id === productId)
-            if (isInCartIndex >= 0) {
-                const updatedCart = [...prevCart]
-                updatedCart[isInCartIndex].quantity += quantity
-                return updatedCart
+            if (!cart) {
+                return [{ ...product, quantity }]
             } else {
-                return [...prevCart, { id: productId, quantity }]
+                const isInCartIndex = prevCart.findIndex(cartItem => cartItem.id === product.id)
+                if (isInCartIndex >= 0) {
+                    const updatedCart = [...prevCart]
+                    updatedCart[isInCartIndex].quantity += quantity
+                    return updatedCart
+                } else {
+                    return [...prevCart, { ...product, quantity }]
+                }
             }
         })
     }
@@ -25,12 +29,12 @@ const CartProvider = ({ children }) => {
     }
 
     const cleanCart = () => {
-        setCart([])
+        setCart(null)
     }
 
     return (
         <CartContext.Provider value={[cart, addProduct, removeProduct, cleanCart]}>
-            { children }
+            {children}
         </CartContext.Provider>
     )
 }

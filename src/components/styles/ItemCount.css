@@ -1,8 +1,19 @@
-.counter-container {
-    display: flex;
-    align-items: center;
+
+.input-group-text {
+    justify-content: center;
+    width: 60px;
 }
 
-.counter-container span {
-    margin: 10px 20px;
+.btn-counter {
+    display: flex !important;
+    background-color: #efb810 !important;
+    width: 50px;
+}
+
+.btn-counter:hover {
+    background-color: #d19238 !important;
+}
+
+.btn-counter:active {
+    background-color: #916324 !important;
 }
