@@ -2,18 +2,15 @@
     margin-top: 70px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .card-img-details {
     max-width: 60%;
 }
 
-.counter-container {
+.item-count-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
-
-.counter-container span {
-    margin: 10px 20px;
-}
-

@@ -27,3 +27,20 @@
     height: 100%;
     object-fit: cover;
 }
+
+.btn-card {
+    padding: 10px 20px;
+    background-color: #efb810;
+    color: #031428;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-card:hover {
+    background-color: #d19238;
+}
+
+.btn-card:active {
+    background-color: #916324;
+}

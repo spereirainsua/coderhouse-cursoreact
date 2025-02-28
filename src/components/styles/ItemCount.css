@@ -1,0 +1,19 @@
+
+.input-group-text {
+    justify-content: center;
+    width: 60px;
+}
+
+.btn-counter {
+    display: flex !important;
+    background-color: #efb810 !important;
+    width: 50px;
+}
+
+.btn-counter:hover {
+    background-color: #d19238 !important;
+}
+
+.btn-counter:active {
+    background-color: #916324 !important;
+}

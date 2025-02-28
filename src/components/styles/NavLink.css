@@ -1,4 +1,4 @@
-button {
+.btn-nav-link {
     display: flex;
     padding: 0 20px;
     height: 62px;
@@ -7,6 +7,6 @@ button {
     background: transparent;
 }
 
-button:hover {
+.btn-nav-link:hover {
     background-color: #d19238;
 }
