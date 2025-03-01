@@ -2,8 +2,8 @@ import { useEffect, useState } from "react"
 import { useParams, useLocation } from "react-router-dom"
 import { getOrder } from '../db/db.js'
 import CartItem from './CartItem.jsx'
-import './styles/CheckoutPage.css'
 import LoadingComponent from "./LoadingComponent.jsx"
+import './styles/CheckoutPage.css'
 
 export default function CheckoutPage() {
     const { orderId } = useParams()
@@ -22,7 +22,6 @@ export default function CheckoutPage() {
         } else {
             setIsLoading(false)
         }
-
     }, [orderId])
 
     return (

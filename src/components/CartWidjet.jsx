@@ -1,7 +1,7 @@
-import './styles/CartWidjet.css'
 import { useState, useEffect, useContext } from 'react'
-import { CartContext } from './context/CartContext'
 import { Link } from 'react-router-dom'
+import { CartContext } from './context/CartContext'
+import './styles/CartWidjet.css'
 
 export default function CartWidjet() {
     const { cart, getProductQty } = useContext(CartContext)

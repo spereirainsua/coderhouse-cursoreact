@@ -1,5 +1,5 @@
-import './styles/Item.css'
 import { Link } from 'react-router-dom'
+import './styles/Item.css'
 
 export default function Item({ product }) {
     return (
@@ -8,7 +8,6 @@ export default function Item({ product }) {
                 <div className="img-container">
                     <img src={product.image} alt="Imagen del producto" className="card-img" />
                 </div>
-
                 <div className="title-container">
                     <h5>{product.title}</h5>
                     <Link to={`/product/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>

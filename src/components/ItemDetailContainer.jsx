@@ -1,9 +1,9 @@
 import { useEffect, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom'
-import { getProduct } from '../db/db.js'
 import { CartContext } from './context/CartContext'
-import LoadingComponent from './LoadingComponent.jsx'
-import ItemCount from './ItemCount.jsx'
+import { getProduct } from '../db/db.js'
+import LoadingComponent from './LoadingComponent'
+import ItemCount from './ItemCount'
 import './styles/ItemDetailContainer.css'
 
 export default function ItemDetailContainer() {
@@ -42,20 +42,18 @@ export default function ItemDetailContainer() {
                         <div>
                             <span className="item-price">${(product.price).toFixed(2)}</span>
                         </div>
-
                         {product.stock > 0 ?
                             !isAdded ?
-                            <>
-                                <ItemCount stock={product.stock} count={count} updateCount={updateCount} />
-                                <span>Stock: {product.stock}</span>
-                                <button className="btn-add-to-cart" onClick={handleClick}>Agregar al carrito</button>
+                                <>
+                                    <ItemCount stock={product.stock} count={count} updateCount={updateCount} />
+                                    <span>Stock: {product.stock}</span>
+                                    <button className="btn-add-to-cart" onClick={handleClick}>Agregar al carrito</button>
 
-                            </>
-                            : <span className="added-to-cart">Agregado al carrito!</span>
+                                </>
+                                : <span className="added-to-cart">Agregado al carrito!</span>
                             : <span className="without-stock">Sin stock!</span>
                         }
                     </div>
-
                 </div>
             ) : <LoadingComponent />}
         </>

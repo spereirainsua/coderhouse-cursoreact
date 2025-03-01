@@ -1,5 +1,5 @@
-import './styles/NavLink.css'
 import { Link } from 'react-router-dom'
+import './styles/NavLink.css'
 
 export default function NavLink({ texto, nombre, enlace }) {
     return (

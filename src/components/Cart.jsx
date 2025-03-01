@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState, useRef } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { CartContext } from './context/CartContext'
-import CartItem from './CartItem'
-import './styles/Cart.css'
 import { sendOrder } from '../db/db.js'
-import LoadingComponent from './LoadingComponent'
+import CartItem from './CartItem'
 import CheckoutForm from './CheckoutForm'
+import LoadingComponent from './LoadingComponent'
+import './styles/Cart.css'
 
 const getDateNow = () => {
     const date = new Date()
