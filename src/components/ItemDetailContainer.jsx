@@ -15,7 +15,6 @@ export default function ItemDetailContainer() {
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        console.log(isInCart())
         getProduct(productId).then((response) => {
             setProduct(response)
             setIsLoading(false)
@@ -44,15 +43,16 @@ export default function ItemDetailContainer() {
                             <span className="item-price">${(product.price).toFixed(2)}</span>
                         </div>
 
-                        {!isAdded ?
-                            (<>
-                                {/* <div className="item-count-container"> */}
-                                    <ItemCount stock={product.stock} count={count} updateCount={updateCount} />
-                                    <span>Stock: {product.stock}</span>
-                                    <button className="btn-add-to-cart" onClick={handleClick}>Agregar al carrito</button>
-                                {/* </div> */}
-                            </>)
+                        {product.stock > 0 ?
+                            !isAdded ?
+                            <>
+                                <ItemCount stock={product.stock} count={count} updateCount={updateCount} />
+                                <span>Stock: {product.stock}</span>
+                                <button className="btn-add-to-cart" onClick={handleClick}>Agregar al carrito</button>
+
+                            </>
                             : <span className="added-to-cart">Agregado al carrito!</span>
+                            : <span className="without-stock">Sin stock!</span>
                         }
                     </div>
 

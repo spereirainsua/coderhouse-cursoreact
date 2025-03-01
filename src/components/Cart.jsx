@@ -1,31 +1,34 @@
 import { useContext, useEffect, useState, useRef } from 'react'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { CartContext } from './context/CartContext'
-// import { useForm } from 'react-hook-form'
 import CartItem from './CartItem'
 import './styles/Cart.css'
+import { sendOrder } from '../db/db.js'
 import LoadingComponent from './LoadingComponent'
 import CheckoutForm from './CheckoutForm'
 
-
+const getDateNow = () => {
+    const date = new Date()
+    const day = String(date.getDate()).padStart(2, '0')
+    const month = String(date.getMonth() + 1).padStart(2, '0')
+    const year = date.getFullYear()
+    const hours = String(date.getHours()).padStart(2, '0')
+    const minutes = String(date.getMinutes()).padStart(2, '0')
+    const seconds = String(date.getSeconds()).padStart(2, '0')
+    return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`
+}
 
 export default function Cart() {
     const IVA = 22
     const shipPrice = 250
-    const { cart, removeProduct, getSubtotal } = useContext(CartContext)
+    const { cart, removeProduct, getSubtotal, cleanCart } = useContext(CartContext)
     const [isLoading, setIsLoading] = useState(true)
     const [isEmpty, setIsEmpty] = useState(true)
     const [subTotal, setSubTotal] = useState(0)
     const [calcIva, setCalcIva] = useState(0)
     const [total, setTotal] = useState(0)
     const [checkout, setCheckout] = useState(false)
-
-    // const checkoutFormRef = useRef()
-    // const {
-    //     register,
-    // handleSubmit,
-    //     watch,
-    //     formState: { errors },
-    // } = useForm()
+    const navigate = useNavigate()
 
     useEffect(() => {
         if (cart && cart.length > 0) {
@@ -51,13 +54,31 @@ export default function Cart() {
     const handleClickPurchase = () => {
         if (!checkout) setCheckout(true)
         else {
-            //realizar submit a formulario
             checkoutFormRef.current.submitFormExternamente()
         }
     }
 
+    const handleClickBack = () => {
+        if (checkout) setCheckout(false)
+    }
+
     const onSubmit = (data) => {
-        console.log('Formulario enviado', data); //SEGUIR ACÁ
+        const order = {
+            name: data.name,
+            lastname: data.lastname,
+            email: data.email,
+            city: data.city,
+            address: data.address,
+            payMethod: data.paymethod,
+            shipPrice: shipPrice,
+            totalOrder: total,
+            products: [...cart],
+            createdAt: getDateNow()
+        }
+        sendOrder(order).then((resultOrder) => {
+            cleanCart()
+            navigate("/order/" + resultOrder.id, { state: order })
+        }).catch((error) => console.log("Error al realizar la compra: " + error.message))
     }
 
     return (
@@ -81,7 +102,7 @@ export default function Cart() {
                             }
                         </div>
                         :
-                        <CheckoutForm ref={checkoutFormRef} onSubmit={onSubmit} />  /*checkoutFormRef={checkoutFormRef} handleSubmit={handleSubmit} onSubmit={onSubmit} register={register} errors={errors} */
+                        <CheckoutForm ref={checkoutFormRef} onSubmit={onSubmit} />
                     }
                     <div className="purchase-summary">
                         <div className="line-item">
@@ -102,7 +123,10 @@ export default function Cart() {
                         {!checkout ?
                             <button onClick={handleClickPurchase} className="btn-finalize">Continuar Compra</button>
                             :
-                            <button onClick={handleClickPurchase} className="btn-finalize">Finalizar Compra</button>
+                            <>
+                                <button onClick={handleClickPurchase} className="btn-finalize">Finalizar Compra</button>
+                                <button onClick={handleClickBack} className="btn-back">Volver</button>
+                            </>
                         }
                     </div>
                 </div>

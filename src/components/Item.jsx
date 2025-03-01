@@ -1,7 +1,7 @@
-import './styles/ProductCard.css'
+import './styles/Item.css'
 import { Link } from 'react-router-dom'
 
-export default function ProductCard({ product }) {
+export default function Item({ product }) {
     return (
         <>
             <div className="product-card">

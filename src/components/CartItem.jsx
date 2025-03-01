@@ -21,9 +21,11 @@ export default function CartItem({ product, onRemove }) {
                 <div className="subtotal-row-container">
                     <span>${(product.quantity * product.price).toFixed(2)}</span>
                 </div>
+                {onRemove ?
                 <div className="btn-delete-row">
                     <button className="btn btn-delete" onClick={handleRemove}><img src="/img/delete.svg" alt="Eliminar" /></button>
                 </div>
+                :<></>}
             </div>
         </>
     )

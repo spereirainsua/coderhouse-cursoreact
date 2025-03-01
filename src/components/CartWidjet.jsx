@@ -4,7 +4,7 @@ import { CartContext } from './context/CartContext'
 import { Link } from 'react-router-dom'
 
 export default function CartWidjet() {
-    const {cart, getProductQty} = useContext(CartContext)
+    const { cart, getProductQty } = useContext(CartContext)
     const [count, setCount] = useState(0)
 
     useEffect(() => {
@@ -14,8 +14,11 @@ export default function CartWidjet() {
     return (
         <>
             <Link to={"/cart"} style={{ textDecoration: 'none', color: 'inherit' }}>
-                {/* <button className="btn-cart"><img src="/img/shopping_cart.svg" alt="Carrito" /><span id="itemCount" className="cart-item-count">{count}</span></button> */}
-                <button className="btn-cart"><img className="img" src="/img/shopping_cart.svg" alt="Carrito" /><span className="item-count">{count}</span></button>
+                <button className="btn-cart"><img className="img" src="/img/shopping_cart.svg" alt="Carrito" />
+                {count > 0 ?
+                    <span className="item-count">{count}</span>
+                :<></>}
+                </button>
             </Link>
         </>
     )

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import ProductCard from './ProductCard.jsx'
+import Item from './Item.jsx'
 import LoadingComponent from './LoadingComponent.jsx'
 import { getProducts, getCategory } from '../db/db.js'
 import { useParams } from 'react-router-dom'
@@ -36,7 +36,7 @@ export default function ItemList() {
                         <h2>{subtitle}</h2>
                         <section className="products-container">
                             {products.map((product) => (
-                                <ProductCard key={product.id} product={product} />
+                                <Item key={product.id} product={product} />
                             ))}
                         </section>
                     </>
