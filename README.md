@@ -38,7 +38,7 @@ npm run dev
 
 ## Estructura de Carpetas
 
-```
+```bash
 /public              # Aquí se guardan los recursos publicos
 /src
   /components        # Componentes reutilizables de la interfaz
@@ -66,4 +66,5 @@ npm run dev
 - Visualización de la información del pedido una vez realizado.
 
 ##Licencia
-Este proyecto está bajo la licencia MIT.
+
+- Este proyecto está bajo la licencia MIT.
