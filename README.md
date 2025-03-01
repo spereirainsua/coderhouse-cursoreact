@@ -47,24 +47,24 @@ npm run dev
   /db                # Archivo de configuración de Firebase y ejecución de consultas con la DB
 ```
 
-##Funcionalidades
+## Funcionalidades
 
-###Carrito de compras
+### Carrito de compras
 
 - Añadir productos al carrito.
 - Eliminar productos del carrito.
 - Ver el subtotal y el total del carrito, incluyendo IVA y costos de envío.
 
-###Checkout
+### Checkout
 
 - Formulario para ingresar datos del cliente y método de pago.
 - Validación de los campos del formulario.
 - Al completar la compra, los datos del pedido son enviados a Firebase.
 
-###Confirmación de Pedido
+### Confirmación de Pedido
 
 - Visualización de la información del pedido una vez realizado.
 
-##Licencia
+## Licencia
 
 - Este proyecto está bajo la licencia MIT.
