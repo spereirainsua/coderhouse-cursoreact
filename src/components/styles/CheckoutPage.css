@@ -1,0 +1,51 @@
+.checkout-page-container {
+    margin: 20px auto;
+    padding: 20px 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-page-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.checkout-page-order {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    margin-top: 10px;
+}
+
+.checkout-page-line {
+    font-size: 16px;
+    color: #555;
+    margin: 10px 0;
+}
+
+.checkout-page-line-not-found {
+    justify-self: center;
+    font-size: 16px;
+    color: #555;
+    margin: 10px 0;
+}
+
+.checkout-page-line strong {
+    color: #333;
+}
+
+.order-id {
+    font-size: 18px;
+    color: #4CAF50;
+    font-weight: bold;
+    margin: 15px 0;
+    padding: 10px;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    background-color: #e7f0ff;
+    display: inline-block;
+}

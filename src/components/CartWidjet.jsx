@@ -3,28 +3,22 @@ import { useState, useEffect, useContext } from 'react'
 import { CartContext } from './context/CartContext'
 import { Link } from 'react-router-dom'
 
-const itemCount = (cart) => {
-    return cart.reduce((total, product) => total + product.quantity, 0)
-}
-
 export default function CartWidjet() {
-    const [cart] = useContext(CartContext)
+    const { cart, getProductQty } = useContext(CartContext)
     const [count, setCount] = useState(0)
+
     useEffect(() => {
-        if (!cart) {
-            console.log("Entro aqui!")
-            setCount(0)
-        } else {
-            console.log("LPMMMMMMM!")
-            setCount(itemCount(cart))
-        }
-        
+        setCount(getProductQty())
     }, [cart])
 
     return (
         <>
             <Link to={"/cart"} style={{ textDecoration: 'none', color: 'inherit' }}>
-                <button className="btn-cart"><img src="/img/shopping_cart.svg" alt="Carrito" /><span id="itemCount" className="cart-item-count">{count}</span></button>
+                <button className="btn-cart"><img className="img" src="/img/shopping_cart.svg" alt="Carrito" />
+                {count > 0 ?
+                    <span className="item-count">{count}</span>
+                :<></>}
+                </button>
             </Link>
         </>
     )

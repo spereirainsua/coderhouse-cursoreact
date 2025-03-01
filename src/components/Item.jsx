@@ -1,10 +1,10 @@
-import './styles/ProductCard.css'
+import './styles/Item.css'
 import { Link } from 'react-router-dom'
 
-export default function ProductCard({ product }) {
+export default function Item({ product }) {
     return (
         <>
-            <div className="card">
+            <div className="product-card">
                 <div className="img-container">
                     <img src={product.image} alt="Imagen del producto" className="card-img" />
                 </div>
