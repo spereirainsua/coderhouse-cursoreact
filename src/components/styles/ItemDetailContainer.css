@@ -11,6 +11,35 @@
 
 .item-count-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.btn-add-to-cart {
+    padding: 10px 20px;
+    background-color: #efb810;
+    color: #031428;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #d19238 !important;
+}
+
+.btn-add-to-cart:active {
+    background-color: #916324 !important;
+}
+
+.item-price {
+    font-size: 30px; 
+    font-weight: 300;
+    font-family: 'Proxima Nova', sans-serif; 
+    color: #4CAF50;
+    display: block; 
+    margin: 10px 0; 
+    text-align: center; 
+    letter-spacing: 1px; 
 }

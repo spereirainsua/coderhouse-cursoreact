@@ -3,7 +3,7 @@ import { createContext, useState } from "react"
 export const CartContext = createContext()
 
 const CartProvider = ({ children }) => {
-    const [cart, setCart] = useState(null)
+    const [cart, setCart] = useState([])
 
     const addProduct = (product, quantity) => {
         setCart(prevCart => {
@@ -22,6 +22,22 @@ const CartProvider = ({ children }) => {
         })
     }
 
+    const isInCart = (id) => {
+        return (cart.filter(product => product.id == id)).length > 0
+    }
+
+    const getProductQty = () => {
+        return cart.reduce((total, product) => total + product.quantity, 0)
+    }
+
+    const getSubtotal = () => {
+        let total = 0
+        cart.forEach(product => {
+            total += product.quantity * product.price
+        })
+        return total
+    }
+
     const removeProduct = (productId) => {
         setCart(prevCart => {
             return prevCart.filter(product => product.id != productId)
@@ -29,11 +45,11 @@ const CartProvider = ({ children }) => {
     }
 
     const cleanCart = () => {
-        setCart(null)
+        setCart([])
     }
 
     return (
-        <CartContext.Provider value={[cart, addProduct, removeProduct, cleanCart]}>
+        <CartContext.Provider value={{ cart, addProduct, removeProduct, cleanCart, getProductQty, getSubtotal, isInCart }}>
             {children}
         </CartContext.Provider>
     )
