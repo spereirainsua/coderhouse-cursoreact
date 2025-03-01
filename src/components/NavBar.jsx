@@ -1,8 +1,8 @@
 import CartWidjet from './CartWidjet'
 import LogoComponent from './LogoComponent'
-import './styles/NavBar.css'
 import NavLink from './NavLink'
 import NavHoverLink from './NavHoverLink'
+import './styles/NavBar.css'
 
 export default function NavBar() {
     return (

@@ -12,11 +12,11 @@ export default function ItemCount({ stock, count, updateCount }) {
             <div>
                 <div className="input-group">
                     <button className="btn-counter btn" onClick={() => updateCount((count) => counter(count, -1, stock))}>
-                    <img src="/img/remove.svg" alt="Quitar" />
+                        <img src="/img/remove.svg" alt="Quitar" />
                     </button>
                     <span className="input-group-text">{count}</span>
                     <button className="btn-counter btn" onClick={() => updateCount((count) => counter(count, 1, stock))}>
-                    <img src="/img/add.svg" alt="Agregar" />
+                        <img src="/img/add.svg" alt="Agregar" />
                     </button>
                 </div>
             </div>

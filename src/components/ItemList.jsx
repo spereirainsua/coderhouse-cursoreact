@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import Item from './Item.jsx'
-import LoadingComponent from './LoadingComponent.jsx'
-import { getProducts, getCategory } from '../db/db.js'
 import { useParams } from 'react-router-dom'
+import { getProducts, getCategory } from '../db/db.js'
+import Item from './Item'
+import LoadingComponent from './LoadingComponent'
 import './styles/ItemList.css'
 
 export default function ItemList() {
