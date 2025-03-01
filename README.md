@@ -66,5 +66,4 @@ npm run dev
 - Visualización de la información del pedido una vez realizado.
 
 ## Licencia
-
-- Este proyecto está bajo la licencia MIT.
+Este proyecto está bajo la licencia MIT.
