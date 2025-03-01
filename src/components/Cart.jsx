@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState, useRef } from 'react'
 import { CartContext } from './context/CartContext'
+// import { useForm } from 'react-hook-form'
 import CartItem from './CartItem'
 import './styles/Cart.css'
 import LoadingComponent from './LoadingComponent'
@@ -17,7 +18,14 @@ export default function Cart() {
     const [calcIva, setCalcIva] = useState(0)
     const [total, setTotal] = useState(0)
     const [checkout, setCheckout] = useState(false)
-    const checkoutFormRef = useRef()
+
+    // const checkoutFormRef = useRef()
+    // const {
+    //     register,
+    // handleSubmit,
+    //     watch,
+    //     formState: { errors },
+    // } = useForm()
 
     useEffect(() => {
         if (cart && cart.length > 0) {
@@ -38,19 +46,18 @@ export default function Cart() {
         setTotal(subTotal + calcIva + shipPrice)
     }, [calcIva])
 
+    const checkoutFormRef = useRef()
+
     const handleClickPurchase = () => {
         if (!checkout) setCheckout(true)
         else {
-            
             //realizar submit a formulario
-            checkoutFormRef.current.requestSubmit()
-
+            checkoutFormRef.current.submitFormExternamente()
         }
     }
 
-    const handleSubmitForm = (e) => {
-        e.preventDefault()
-
+    const onSubmit = (data) => {
+        console.log('Formulario enviado', data); //SEGUIR ACÁ
     }
 
     return (
@@ -74,7 +81,7 @@ export default function Cart() {
                             }
                         </div>
                         :
-                        <CheckoutForm checkoutFormRef={checkoutFormRef} handleSubmitForm={handleSubmitForm} />
+                        <CheckoutForm ref={checkoutFormRef} onSubmit={onSubmit} />  /*checkoutFormRef={checkoutFormRef} handleSubmit={handleSubmit} onSubmit={onSubmit} register={register} errors={errors} */
                     }
                     <div className="purchase-summary">
                         <div className="line-item">
