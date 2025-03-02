@@ -2,6 +2,10 @@
 
 Este es el repositorio del proyecto final del curso de React en Coderhouse. El proyecto consiste en el desarrollo de una aplicación de comercio electrónico (tienda en línea) con funcionalidades de carrito de compras, formulario de checkout y persistencia de datos en Firebase.
 
+## Proyecto en producción
+
+[eCommerce | ANUBIS](https://eclectic-bonbon-890e5c.netlify.app/)
+
 ## Descripción
 
 La aplicación permite a los usuarios explorar productos, añadirlos a un carrito de compras, proceder a realizar un pedido, y finalmente confirmar la compra. El proyecto integra las siguientes características:
